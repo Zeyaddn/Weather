@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    filter: blur(10px); /* Apply a blur effect to the video */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0; /* Remove default body margin */
+}
+
+.container {
+    position: relative;
+    width: 100%; /* Change width to 100% for responsiveness */
+    max-width: 400px; /* Add max-width to limit the container's width */
+    background: rgba(0, 0, 0, 0.1);
+    padding: 28px 16px; /* Adjust padding for smaller screens */
+    overflow: hidden;
+    border-radius: 18px;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.6s ease-out;
+    backdrop-filter: blur(30px);
+    color: #fff;
+    box-shadow: 0 0 5px #929292;
+    height: 100px; /* Set height to auto for dynamic content */
+    animation: bounceIn 1s forwards; /* إضافة الرسم المتحركة والتأخير */
+    animation-delay: 0.5s;
+}
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 295px) {
+    .search-box input::placeholder{
+    opacity: 0;
+    }
+}
+
+
+.search-box{
+    width: 100%;
+    height: min-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    
+}
+
+.search-box input{
+    color: #0e0e0ec3;
+    width: 80%;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-left: 32px;
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+
+.search-box input::placeholder{
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.search-box button{
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    color:rgb(41, 121, 255);
+    background-color: transparent;
+    border-radius: 50%;
+    font-size: 22px;
+    transition: 0.4s ease;
+
+}
+.weather-box img {
+    width: 60%;
+    margin-top: 30px;
+    transition: width 0.3s ease-in-out; /* إضافة تحويل لتغيير عرض الصورة */
+}
+
+.search-box button:hover{
+    color: #fff;
+    background: rgb(143, 142, 142)
+}
+
+.search-box i{
+    position: absolute;
+    color: #fff;
+    font-size: 28px;
+}
+
+.weather-box{
+    text-align: center;
+}
+
+.weather-box img{
+    width: 60%;
+    margin-top: 30px;
+}
+
+.weather-box .temperature{
+    position: relative;
+    color: #fff;
+    font-size: 4rem;
+    font-weight: 800;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.weather-box .temperature span{
+    position: absolute;
+    margin-left: 4px;
+    font-size: 1.5rem;
+}
+
+.weather-box .description{
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.weather-details{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.weather-details .humidity, .weather-details .wind{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100px;
+}
+
+.weather-details .humidity{
+    padding-left: 20px;
+    justify-content: flex-start;
+}
+
+.weather-details .wind{
+    padding-right: 20px;
+    justify-content: flex-end;
+}
+
+.weather-details i{
+    color: #fff;
+    font-size: 26px;
+    margin-right: 10px;
+    margin-top: 6px;
+}
+
+.weather-details span{
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.weather-details p{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.not-found{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    scale: 0;
+    opacity: 0;
+    display: none;
+}
+
+.not-found img{
+    width: 70%;
+}
+
+.not-found p{
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+.weather-box, .weather-details{
+    scale: 0;
+    opacity: 0;
+}
+
+.fadeIn{
+    animation: 0.5s fadeIn forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeIn{
+    to {
+        scale: 1;
+        opacity: 1;
+    }
+}
